@@ -1,0 +1,18 @@
+{
+    "prefixes": [ "/", "orpheus.", "o." ],
+    "bot_presence": "with code",
+    "greeting": "Hello hello!",
+    "resources": "🐙🐱 [GitHub](https://github.com/Milotrince/lchs-hackclub/)",
+    "invalid_command": "I don't know that command yet :(",
+
+    "about": "I am HackClub's mascot! I don't *really* know what I'm doing, but I think coding is my superpower. When I'm bored I-- wait, I'm never bored. I'm always making my projects and managing HackClub!",
+
+    "commands": "Commands",
+
+    "_cog": {
+        "generic":"Generic",
+        "club":"Club",
+        "fun":"Fun",
+        "admin":"Admin"
+    }
+}
