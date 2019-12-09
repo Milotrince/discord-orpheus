@@ -8,14 +8,10 @@ print('''
 
 import discord
 import pytz
-import dataset
-from random import choice
-from datetime import datetime, timedelta
+from os import listdir
+from os.path import isfile, join
 from discord.ext import commands
 from constants import *
-
-def log(content):
-    print('{} {}'.format(datetime.now(), content))
 
 def determine_prefix(bot, message):
     prefixes = strings['prefixes']
@@ -31,7 +27,7 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-    print('{0.user} is online!'.format(bot.user.name))
+    print('{} is online!'.format(bot.user.name))
 
 @bot.event
 async def on_disconnect():
@@ -46,12 +42,13 @@ async def on_command_error(ctx, error):
     else:
         log("===== ERROR RAISED FROM: " + ctx.message.content)
         print(error)
+        await ctx.send("Uhh something went wrong")
 
 # add cogs (groups of commands)
-cogs_folder = 'cogs'
-cogs = [ 'generic', 'club', 'fun' ]
-for cog_name in cogs:
-    bot.load_extension(cogs_folder + '.' + cog_name)
+cogs_path = './cogs'
+cog_file_names = [f[:f.index('.')] for f in listdir(cogs_path) if isfile(join(cogs_path, f))]
+for cog_name in cog_file_names:
+    bot.load_extension('cogs.' + cog_name)
 for cog in bot.cogs.values():
     for command in cog.get_commands():
         # Use only if want override from strings.json

@@ -49,15 +49,17 @@ class Generic(commands.Cog, name=strings['_cog']['generic']):
             return
 
         for cog_name, cog in self.bot.cogs.items():
-            embed = discord.Embed(
-                color=cog.color,
-                title="{} {}".format(cog_name, strings['commands']) )
-            for command in sorted(cog.get_commands(), key=lambda c:c.name):
-                embed.add_field(
-                    name="**{}**    aka `{}`".format(command, "`, `".join(command.aliases)),
-                    value=command.short_doc,
-                    inline=False )
-            await ctx.send(embed=embed)
+            has_access = cog.cog_check(ctx)
+            if has_access:
+                embed = discord.Embed(
+                    color=cog.color,
+                    title="{} {}".format(cog_name, strings['commands']) )
+                for command in sorted(cog.get_commands(), key=lambda c:c.name):
+                    embed.add_field(
+                        name="**{}**    aka `{}`".format(command, "`, `".join(command.aliases)),
+                        value=command.short_doc,
+                        inline=False )
+                await ctx.send(embed=embed)
 
 
 def setup(bot):

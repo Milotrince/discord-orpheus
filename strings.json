@@ -3,16 +3,25 @@
     "bot_presence": "with code",
     "greeting": "Hello hello!",
     "resources": "🐙🐱 [GitHub](https://github.com/Milotrince/lchs-hackclub/)",
-    "invalid_command": "I don't know that command yet :(",
 
     "about": "I am HackClub's mascot! I don't *really* know what I'm doing, but I think coding is my superpower. When I'm bored I-- wait, I'm never bored. I'm always making my projects and managing HackClub!",
 
     "commands": "Commands",
 
+    "embed_default_title": "",
+    "embed_default_description": "",
+    "embed_title": ["title", "t"],
+    "embed_description": ["description", "desc", "d"],
+    "embed_inline": ["inline"],
+
+    "autorole_no_roles": "You should specify what emojis are what roles!",
+    "invalid_command": "I don't know that command yet :(",
+    "not_admin": "You're not a club officer, so I can't let you do that!",
+
     "_cog": {
         "generic":"Generic",
-        "club":"Club",
         "fun":"Fun",
-        "admin":"Admin"
+        "club":"Club",
+        "admin":"(Officer) Club Management"
     }
 }
