@@ -20,7 +20,7 @@ def log(content):
 
 def pop_flags(args):
     """Returns (flags, args for flag). Flags are words starting with -"""
-    split_on_flags = ' '.join(list(args)).split('-')
+    split_on_flags = ' '.join(list(args)).split('--')
     del split_on_flags[0]
     flags = []
     flag_args = []

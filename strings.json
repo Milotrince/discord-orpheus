@@ -17,6 +17,10 @@
     "autorole_no_roles": "You should specify what emojis are what roles!",
     "invalid_command": "I don't know that command yet :(",
     "not_admin": "You're not a club officer, so I can't let you do that!",
+    "missing_args": "You need to specify more values",
+    "could_not_find_message": "I couldn't find the message in that channel.",
+    "invalid_number_arg": "The id should be a number!",
+    "fatal_error": "Uhhh something went wrong",
 
     "_cog": {
         "generic":"Generic",

@@ -9,7 +9,7 @@ class Club(commands.Cog, name=strings['_cog']['club']):
 
     @commands.command(aliases=['links', 'github'])
     async def resources(self, ctx):
-        """Club resources"""
+        """Show links of clubstuff and more"""
         embed=discord.Embed(
             title='Resources',
             color=red,

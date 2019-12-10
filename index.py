@@ -42,7 +42,7 @@ async def on_command_error(ctx, error):
     else:
         log("===== ERROR RAISED FROM: " + ctx.message.content)
         print(error)
-        await ctx.send("Uhh something went wrong")
+        await ctx.send(strings['fatal_error'])
 
 # add cogs (groups of commands)
 cogs_path = './cogs'
