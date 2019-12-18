@@ -2,7 +2,7 @@
     "prefixes": [ "/", "orpheus.", "o." ],
     "bot_presence": "with code",
     "greeting": "Hello hello!",
-    "resources": "🐙🐱 [GitHub](https://github.com/Milotrince/lchs-hackclub/)",
+    "resources": "🐱 [GitHub](https://github.com/Milotrince/lchs-hackclub/) Main club repository with workshops\n 🕸️ [Website](https://lchackclub.com/) Help us build this website!",
 
     "about": "I am HackClub's mascot! I don't *really* know what I'm doing, but I think coding is my superpower. When I'm bored I-- wait, I'm never bored. I'm always making my projects and managing HackClub!",
 
@@ -15,12 +15,20 @@
     "embed_inline": ["inline"],
 
     "autorole_no_roles": "You should specify what emojis are what roles!",
-    "invalid_command": "I don't know that command yet :(",
+    "invalid_command": [
+        "I don't know that command yet :(",
+        "Ummmm",
+        ":confused:",
+        "whaa?"
+    ],
     "not_admin": "You're not a club officer, so I can't let you do that!",
     "missing_args": "You need to specify more values",
-    "could_not_find_message": "I couldn't find the message in that channel.",
+    "could_not_find_message": "I couldn't find the message in that channel. Is that the right message id?",
+    "bad_target_embed": "Huh.. I don't think that message has a valid embed.",
     "invalid_number_arg": "The id should be a number!",
     "fatal_error": "Uhhh something went wrong",
+
+    "edit_success": "Updated the embed!",
 
     "_cog": {
         "generic":"Generic",

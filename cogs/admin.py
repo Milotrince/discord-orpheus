@@ -40,6 +40,44 @@ class Admin(commands.Cog, name=strings['_cog']['admin']):
                 embed.add_field(name=flag.replace('_', ' '), value=value, inline=inline)
 
         return await target_channel.send(embed=embed)
+
+    @commands.command(aliases=['edit', 'update'])
+    async def edit_embed(self, ctx, *args):
+        """
+        Edit embed
+        First argument should be channel id
+        flags: --`title`, --`description`, --`inline`, --`ANY`
+        (`ANY` is the field name, args will be field contents)
+        """
+        channel = ctx.message.channel_mentions[0] if ctx.message.channel_mentions else ctx.channel
+        id = 0
+        try:
+            id = int(args[0])
+        except ValueError as ex:
+            return await ctx.send(strings['invalid_number_arg'])
+        except IndexError as ex:
+            return await ctx.send(strings['missing_args'])
+
+        message = await channel.fetch_message(args[0])
+        if not message:
+            return await ctx.send(strings['could_not_find_message'])
+        embed = message.embeds[0]
+        if not embed:
+            return await ctx.send(strings['bad_target_embed'])
+
+        (flags, flag_args) = pop_flags(args)
+        for i, flag in enumerate(flags):
+            value = flag_args[i]
+            if flag in strings['embed_title']:
+                embed.title = value
+            elif flag in strings['embed_description']:
+                embed.description = value
+            elif flag in strings['embed_inline']:
+                inline = 'y' in flag or 't' in flag
+            else:
+                embed.add_field(name=flag.replace('_', ' '), value=value, inline=inline)
+        await message.edit(embed=embed)
+        await ctx.channel.send(strings['edit_success'])
     
     @commands.command(aliases=['role'])
     async def autorole(self, ctx, *args):
