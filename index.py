@@ -14,9 +14,8 @@ from discord.ext import commands
 from constants import *
 
 def determine_prefix(bot, message):
-    prefixes = strings['prefixes']
-    prefixes.append(bot.user.mention + ' ')
-    return prefixes
+    mention = '<@!{}> '.format(bot.user.id)
+    return strings['prefixes'] + [mention]
 
 # Define bot
 bot = commands.Bot(
@@ -27,18 +26,18 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-    print('{} is online!'.format(bot.user.name))
+    log('{} is online!'.format(bot.user.name))
 
 @bot.event
 async def on_disconnect():
-    print('{} has disconnected...'.format(bot.user.name))
+    log('{} has disconnected...'.format(bot.user.name))
 
 # Disable for full stack trace
 @bot.event
 async def on_command_error(ctx, error):
     """Sends a message when command error is encountered."""
     if type(error) == commands.errors.CommandNotFound:
-        await ctx.send(strings['invalid_command'])
+        await ctx.send(choice(strings['invalid_command']))
     else:
         log("===== ERROR RAISED FROM: " + ctx.message.content)
         print(error)
