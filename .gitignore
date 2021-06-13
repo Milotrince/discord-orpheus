@@ -123,3 +123,5 @@ dmypy.json
 .pyre/
 .DS_Store
 .auth
+database.db
+.vscode/settings.json
